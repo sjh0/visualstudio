@@ -1,0 +1,81 @@
+@model visualstudio.Models.Email
+
+    @{
+    ViewData["Title"] = "PastDue";
+    }
+
+    <h2 align="center">Generated Email</h2>
+
+<br>
+
+<div align="center">
+<form asp-controller="EmailTemplate" asp-action="PastDue">
+
+    <select asp-for="Id"
+        class="form-control"
+        asp-items="@(new SelectList(@ViewBag.ListOfEmails,"Id", "Name"))" asp-action="submit"></select>  
+<input type="submit" class="btn" onclick="updateCountry();"/></form>
+
+</div>
+
+<br>
+
+ 
+
+    <tr><td><table align=center width=550><tr><td align="Left">
+    <FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>
+        <br>
+        <p>Dear Customer,</p>
+        <p>This is a friendly reminder that we have not yet received payment on the attached invoice(s) listed below.</p></FONT>
+        <p>
+            <table border="0" cellspacing="0"><tr bgcolor="#000066"><td>
+            <FONT COLOR="WHITE" face="Verdana, Arial, Helvetica, sans-serif" size=2>
+                Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></td>
+            <td><FONT COLOR="WHITE" face="Verdana, Arial, Helvetica, sans-serif" size=2>
+                Amount Due:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT></td>
+            <td><FONT COLOR="WHITE" face="Verdana, Arial, Helvetica, sans-serif" size=2>
+                Invoice Date:</FONT></td>
+            </tr></table>
+        </p>
+        <p>
+            Credit card or check by phone payment can be made at this time by calling
+            <b>@Html.DisplayFor(model => model.Phone)</b>.
+            Additional options for submitting your payment are conveniently listed on the attached invoice(s).
+        </p>
+        <p>
+            If you have any questions, please email us at 
+            <b>@Html.DisplayFor(model => model.EmailAddress)</b> or call us at the number located above.
+        </p>
+        <p>
+            We appreciate your business and ongoing support.
+        </p>
+        <p>
+            Sincerely,
+        </p>
+        <p>
+            The CareerBuilder Team
+        </p></td></tr></table>
+</td></tr>
+
+    <br>
+
+    <div align="center">
+    <p> Translate this page: </p>
+
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+
+        function updateCountry() {
+            alert('Clicked');
+            
+
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <p> In order to translate this page, select the language you wish to translate to. </p>
+    </div>

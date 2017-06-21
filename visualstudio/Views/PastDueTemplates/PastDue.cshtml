@@ -1,0 +1,30 @@
+@model visualstudio.Models.PastDueTemplate
+
+@{
+    ViewData["Title"] = "PastDue";
+}
+
+<h2>PastDue</h2>
+
+<tr>
+    <td>
+        <table align=center width=550>
+            <tr>
+                <td align="Left">
+                    <FONT face="Verdana, Arial, Helvetica, sans-serif" size=2>
+                        <br>
+                        <p>Dear @Html.DisplayFor(model => model.Name),</p>
+                        <p>@Html.DisplayFor(model => model.Intro)</p>
+                    </FONT>
+                    <p>
+                        @Html.DisplayFor(model => model.Body)
+                    </p>
+                    <p>
+                       @Html.DisplayFor(model => model.Closing)
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <p><a asp-action="Index">Edit Text</a></p>
+    </td>
+</tr>
